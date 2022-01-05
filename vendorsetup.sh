@@ -1,9 +1,5 @@
 # Shebang is intentionally missing - do not run as a script
 
-# Override host metadata to make builds more reproducible and avoid leaking info
-export BUILD_USERNAME=nobody
-export BUILD_HOSTNAME=android-build
-
 # ABI compatibility checks fail for several reasons:
 #   - The update to Clang 12 causes some changes, but no breakage has been
 #     observed in practice.
@@ -104,7 +100,3 @@ export SKIP_ABI_CHECKS=true
 # This doesn't increase build time significantly, so enable it for
 # performance.
 #export GLOBAL_THINLTO=true
-
-# Some Qualcomm HALs in AOSP depend on this variable. Define it here to
-# avoid unnecessary repo forks.
-export QC_OPEN_PATH=vendor/qcom/opensource
